@@ -22,9 +22,13 @@ func main() {
 		},
 	}
 
-	b, _ := json.Marshal(req)
+	b, err := json.Marshal(req)
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
 	payload := bytes.NewBuffer(b)
-	fmt.Println(string(payload.String()))
+
 	request, err := http.NewRequest("POST", config.Envs.GPT_URL, payload)
 	if err != nil {
 		log.Fatal(err)
@@ -40,10 +44,13 @@ func main() {
 	}
 	defer response.Body.Close()
 
-	body, err := io.ReadAll(response.Body)
+	reader, err := io.ReadAll(response.Body)
 	if err != nil {
 		log.Fatal(err)
 		return
 	}
-	fmt.Println(string(body))
+	var res types.Response
+	json.Unmarshal(reader, &res)
+
+	fmt.Println(res.Choices[0].Message.Content)
 }

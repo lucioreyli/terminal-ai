@@ -9,3 +9,4 @@ It's a simple terminal-based interface for GPT using Golang.
 - [ ] Support for multiple files
 - [ ] Support for threads
 - [ ] Support for streaming
+
