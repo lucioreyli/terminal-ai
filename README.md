@@ -4,7 +4,8 @@ It's a zero-dependency simple terminal-based interface for GPT using Golang.
 
 ## Features
 
-- [ ] Support for multiple models
+- [x] Support for completions
+- [ ] Support for images generation
 - [ ] Support for multiple prompts
 - [ ] Support for multiple files
 - [ ] Support for threads
