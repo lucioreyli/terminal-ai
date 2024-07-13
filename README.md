@@ -1,6 +1,6 @@
 # Terminal AI
 
-It's a simple terminal-based interface for GPT using Golang.
+It's a zero-dependency simple terminal-based interface for GPT using Golang.
 
 ## Features
 
