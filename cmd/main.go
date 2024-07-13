@@ -13,19 +13,20 @@ import (
 )
 
 func main() {
-	fmt.Println(fmt.Sprintf("%s:", color.Format(color.CYAN, "Model")), config.Configs.Model)
-	fmt.Println(fmt.Sprintf("%s:", color.Format(color.CYAN, "Prompt")), config.Configs.Prompt)
+	fmt.Println(fmt.Sprintf("%s:", color.Format(color.CYAN, "Model")), *config.Configs.Model)
+	fmt.Println(fmt.Sprintf("%s:", color.Format(color.CYAN, "Prompt")), *config.Configs.Prompt)
+	fmt.Println(fmt.Sprintf("%s:", color.Format(color.CYAN, "Temperature")), *config.Configs.Temperature)
 
-	fmt.Println()
-
+	// source: https://platform.openai.com/docs/api-reference/chat
 	req := types.Request{
-		Model: config.Configs.Model,
+		Model: *config.Configs.Model,
 		Messages: []types.Message{
 			{
 				Role:    "user",
-				Content: []types.Content{{Type: "text", Text: config.Configs.Prompt}},
+				Content: []types.Content{{Type: "text", Text: *config.Configs.Prompt}},
 			},
 		},
+		Temperature: *config.Configs.Temperature,
 	}
 
 	b, err := json.Marshal(&req)

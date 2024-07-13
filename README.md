@@ -5,6 +5,8 @@ It's a zero-dependency simple terminal-based interface for GPT using Golang.
 ## Features
 
 - [x] Support for completions
+- [x] Support for temperature
+- [ ] Support for response formatting
 - [ ] Support for images generation
 - [ ] Support for multiple prompts
 - [ ] Support for multiple files
@@ -42,3 +44,8 @@ go run cmd/main.go --help # or ./bin/terminal_ai --help
 ## License
 
 MIT
+
+## References
+- [https://platform.openai.com/docs/api-reference/chat](https://platform.openai.com/docs/api-reference/chat)
+- [https://platform.openai.com/docs/guides/text-generation](https://platform.openai.com/docs/guides/text-generation)
+- [https://platform.openai.com/docs/models](https://platform.openai.com/docs/models)
