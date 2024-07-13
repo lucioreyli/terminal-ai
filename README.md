@@ -13,6 +13,9 @@ It's a zero-dependency simple terminal-based interface for GPT using Golang.
 ## Usage
 
 ```bash
+go run cmd/main.go 'What is cybertruck?' # default model is gpt-3.5-turbo
+
+# check all available models at https://platform.openai.com/docs/models
 go run cmd/main.go --model gpt-4o 'What is the meaning of life?'
 ```
 
@@ -20,3 +23,13 @@ go run cmd/main.go --model gpt-4o 'What is the meaning of life?'
 ```bash
 go build -o bin/terminal_ai cmd/main.go
 ```
+
+### Help
+```bash
+go run cmd/main.go -h # or ./bin/terminal_ai -h
+go run cmd/main.go --help # or ./bin/terminal_ai --help
+```
+
+## License
+
+MIT
