@@ -28,7 +28,7 @@ func main() {
 		},
 	}
 
-	b, err := json.Marshal(req)
+	b, err := json.Marshal(&req)
 	if err != nil {
 		log.Fatal(err)
 		return
