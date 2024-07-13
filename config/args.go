@@ -24,7 +24,7 @@ func loadConfig() *Config {
 	// source: https://platform.openai.com/docs/api-reference/chat/create#chat-create-temperature
 	var temperature float64
 	temperatureDesc := fmt.Sprintf("%s: %s\n", color.Format(color.CYAN, "Temperature"), color.Format(color.BLUE, "0.0"))
-	flag.Float64Var(&temperature, "temp", 0.2, temperatureDesc)
+	flag.Float64Var(&temperature, "temp", 1.0, temperatureDesc)
 
 	flag.Parse()
 
