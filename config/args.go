@@ -2,8 +2,10 @@ package config
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"strings"
+	"terminal-ai/color"
 )
 
 type Config struct {
@@ -15,8 +17,11 @@ var Configs = loadConfig()
 
 func loadConfig() *Config {
 	var model string
-	flag.StringVar(&model, "model", "gpt-3.5-turbo", "GPT model\nFull list: https://platform.openai.com/docs/models/gpt-4o\nOne of: gpt-3.5-turbo, gpt-3.5-turbo-16k, gpt-4, gpt-4-32k")
+	modelDesc := fmt.Sprintf("%s: %s\n", color.Format(color.CYAN, "Full list of models"), color.Format(color.BLUE, "https://platform.openai.com/docs/models"))
+	flag.StringVar(&model, "model", "gpt-3.5-turbo", modelDesc)
+
 	flag.Parse()
+
 	prompt := strings.Join(flag.Args(), " ")
 	if prompt == "" {
 		log.Fatal("Please provide a prompt")
