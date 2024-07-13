@@ -7,11 +7,17 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"terminal-ai/color"
 	"terminal-ai/config"
 	"terminal-ai/types"
 )
 
 func main() {
+	fmt.Println(fmt.Sprintf("%s:", color.Format(color.CYAN, "Model")), config.Configs.Model)
+	fmt.Println(fmt.Sprintf("%s:", color.Format(color.CYAN, "Prompt")), config.Configs.Prompt)
+
+	fmt.Println()
+
 	req := types.Request{
 		Model: config.Configs.Model,
 		Messages: []types.Message{
@@ -52,5 +58,7 @@ func main() {
 	var res types.Response
 	json.Unmarshal(reader, &res)
 
-	fmt.Println(res.Choices[0].Message.Content)
+	fmt.Println(
+		color.Format(color.YELLOW, res.Choices[0].Message.Content),
+	)
 }
