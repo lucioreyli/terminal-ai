@@ -12,7 +12,7 @@ It's a zero-dependency simple terminal-based interface for GPT using Golang.
 
 ## SETUP
 ```sh
-GPT_TOKEN='sk-...'# get it from https://platform.openai.com/account/api-keys
+GPT_TOKEN='sk-...' # get it from https://platform.openai.com/account/api-keys
 
 # if you're using fish
 set -Ux GPT_TOKEN "sk-..."
