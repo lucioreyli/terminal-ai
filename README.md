@@ -32,13 +32,13 @@ go run cmd/main.go --model gpt-4o 'What is the meaning of life?'
 
 ### Build
 ```bash
-go build -o bin/terminal_ai cmd/main.go
+go build -o bin/ai cmd/main.go
 ```
 
 ### Help
 ```bash
-go run cmd/main.go -h # or ./bin/terminal_ai -h
-go run cmd/main.go --help # or ./bin/terminal_ai --help
+go run cmd/main.go -h # or ./bin/ai -h
+go run cmd/main.go --help # or ./bin/ai --help
 ```
 
 ## License

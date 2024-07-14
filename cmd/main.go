@@ -10,9 +10,15 @@ import (
 	"terminal-ai/color"
 	"terminal-ai/config"
 	"terminal-ai/types"
+	"terminal-ai/utils"
 )
 
 func main() {
+	if ok := utils.CheckValidModel(config.Configs.Model); !ok {
+		fmt.Println(color.Format(color.RED, "Invalid model, check https://platform.openai.com/docs/models"))
+		return
+	}
+
 	fmt.Println(fmt.Sprintf("%s:", color.Format(color.CYAN, "Model")), *config.Configs.Model)
 	fmt.Println(fmt.Sprintf("%s:", color.Format(color.CYAN, "Prompt")), *config.Configs.Prompt)
 	fmt.Println(fmt.Sprintf("%s:", color.Format(color.CYAN, "Temperature")), *config.Configs.Temperature)
