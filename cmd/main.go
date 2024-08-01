@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 	"terminal-ai/color"
 	"terminal-ai/config"
@@ -37,14 +36,14 @@ func main() {
 
 	b, err := json.Marshal(&req)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 		return
 	}
 	payload := bytes.NewBuffer(b)
 
 	request, err := http.NewRequest("POST", config.Envs.GPT_URL, payload)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 		return
 	}
 	request.Header.Set("Content-Type", "application/json")
@@ -52,16 +51,17 @@ func main() {
 
 	response, err := http.DefaultClient.Do(request)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 		return
 	}
 	defer response.Body.Close()
 
 	reader, err := io.ReadAll(response.Body)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 		return
 	}
+
 	var res types.Response
 	json.Unmarshal(reader, &res)
 
